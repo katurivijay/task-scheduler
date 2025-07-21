@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'https://task-scheduler-1-k3dy.onrender.com' }));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI )
