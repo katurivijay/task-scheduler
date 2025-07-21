@@ -13,7 +13,7 @@ function CalendarView() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/tasks')
+    axios.get('https://task-scheduler-7fe4.onrender.com/tasks')
       .then((response) => setTasks(response.data))
       .catch((error) => {
         console.error('Error fetching tasks:', error);

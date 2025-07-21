@@ -17,7 +17,7 @@ function App() {
   const [remindedTasks, setRemindedTasks] = useState(new Set());
 
   useEffect(() => {
-    axios.get('http://localhost:5000/tasks')
+    axios.get('https://task-scheduler-7fe4.onrender.com/tasks')
       .then((response) => setTasks(response.data))
       .catch((error) => {
         console.error('Error fetching tasks:', error);
@@ -36,7 +36,7 @@ function App() {
 
   const addTask = () => {
     if (newTask.trim()) {
-      axios.post('http://localhost:5000/tasks', {
+      axios.post('https://task-scheduler-7fe4.onrender.com/tasks', {
         text: newTask,
         completed: false,
         dueDate: newDueDate,
@@ -58,7 +58,7 @@ function App() {
 
   const toggleTask = (id) => {
     const task = tasks.find((t) => t._id === id);
-    axios.put(`http://localhost:5000/tasks/${id}`, {
+    axios.put(`https://task-scheduler-7fe4.onrender.com/tasks/${id}`, {
       ...task,
       completed: !task.completed,
     })
@@ -73,7 +73,7 @@ function App() {
   };
 
   const deleteTask = (id) => {
-    axios.delete(`http://localhost:5000/tasks/${id}`)
+    axios.delete(`https://task-scheduler-7fe4.onrender.com/tasks/${id}`)
       .then(() => {
         setTasks(tasks.filter((t) => t._id !== id));
         setError('');
@@ -92,7 +92,7 @@ function App() {
   };
 
   const saveEdit = (id) => {
-    axios.put(`http://localhost:5000/tasks/${id}`, {
+    axios.put(`https://task-scheduler-7fe4.onrender.com/tasks/${id}`, {
       text: editText,
       dueDate: editDueDate,
       priority: editPriority,

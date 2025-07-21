@@ -7,7 +7,7 @@ const app = express();
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI )
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch((err) => console.log('Error connecting to MongoDB:', err));
 
